@@ -22,5 +22,10 @@ public class LoginReply {
 	public void setJwt(String jwt) {
 		this.jwt = jwt;
 	}
+	public boolean isEmpty() {
+		if(this.getUserName()==null || this.getUserName().isEmpty())
+			return true;
+		return false;
+	}
 	
 }

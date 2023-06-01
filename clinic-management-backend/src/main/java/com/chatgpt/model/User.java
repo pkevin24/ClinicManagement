@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Table(name="users")
 public class User {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="user_id")
 	private int userid;
 	@Column(name="name")
@@ -20,17 +20,8 @@ public class User {
 	private String username;
 	@Column(name="password")
 	private String password;
-	public User(int userid, String name, String username, String password) {
-		super();
-		this.userid = userid;
-		this.name = name;
-		this.username = username;
-		this.password = password;
-	}
-	public User() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	
+	
 	public int getUserid() {
 		return userid;
 	}
