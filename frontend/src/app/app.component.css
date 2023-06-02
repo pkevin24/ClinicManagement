@@ -15,3 +15,15 @@
         height: 100%;
     }
 }
+
+.my-footer {
+    margin-bottom: 10vh;
+}
+
+.logout-btn {
+    margin-right: 50px;
+}
+
+*{
+    color: black;
+}
