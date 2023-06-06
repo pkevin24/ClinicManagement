@@ -13,6 +13,7 @@ create table DOCTOR(
 ID INT,
 DOCTOR_NAME VARCHAR(25),
 SPECIALITY VARCHAR(25),
+FEES int,
 primary key(ID)
 );
 
@@ -20,7 +21,6 @@ CREATE TABLE SCHEDULE(
     ID INT,
     CLINIC_ID INT,
     DOCTOR_ID INT,
-    FEES INT,
     FOREIGN KEY(Doctor_ID) REFERENCES DOCTOR(ID),
     FOREIGN KEY(CLINIC_ID) REFERENCES CLINIC(ID),
     PRIMARY KEY (ID)
@@ -53,23 +53,23 @@ insert into CLINIC values
 (5,'CLINIC5');
 
 insert into DOCTOR values
-(1,'DR1','PED'),
-(2,'DR2','ENT'),
-(3,'DR3','PHYSIO'),
-(4,'DR4','GENERAL'),
-(5,'DR5','ORTHO');
+(1,'DR1','PED',3000),
+(2,'DR2','ENT',2000),
+(3,'DR3','PHYSIO',5000),
+(4,'DR4','GENERAL',2000),
+(5,'DR5','ORTHO',6000);
 
 insert into SCHEDULE values
-(1,1,1,2000),
-(2,1,2,3000),
-(3,1,3,1000),
-(4,2,4,4000),
-(5,2,2,3000),
-(6,3,3,4000),
-(7,4,1,2000),
-(8,4,2,3000),
-(9,5,1,2000),
-(10,5,5,3000),
-(11,5,3,4000);
+(1,1,1),
+(2,1,2),
+(3,1,3),
+(4,2,4),
+(5,2,2),
+(6,3,3),
+(7,4,1),
+(8,4,2),
+(9,5,1),
+(10,5,5),
+(11,5,3);
 
 

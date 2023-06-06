@@ -1,5 +1,8 @@
 package com.chatgpt.controller;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.chatgpt.model.Clinic;
+import com.chatgpt.model.Doctor;
 import com.chatgpt.model.LoginReply;
 import com.chatgpt.model.User;
 import com.chatgpt.service.ClinicService;
@@ -34,11 +39,11 @@ public class ClinicController {
 		return new ResponseEntity<LoginReply>(res,HttpStatus.OK);
 	}
 	
-//	@GetMapping("/getHomePageData")
-//	public ResponseEntity<List<Clinic>>
-//	{
-//		
-//	}
+	@GetMapping("/getHomePageData")
+	public Map<Clinic,List<Doctor>> getHome()
+	{
+		return serv.getHomePageData();
+	}
 	
 	@PostMapping("/gettoken/register")
 	public String register(@RequestBody User user)

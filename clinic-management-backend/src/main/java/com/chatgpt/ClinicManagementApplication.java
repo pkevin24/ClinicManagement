@@ -17,18 +17,27 @@ public class ClinicManagementApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ClinicManagementApplication.class, args);
 	}
-	
+
 	@Bean
-    public RestTemplate restTemplate() {
-        return new RestTemplate();
-    }
-	
-	
-	@Bean public jwtToken getToken() { return new jwtToken(); }
-	//@Bean public FrontService getobj() { return new FrontService(); }
-	@Bean public User getUser() {return new User();}
-	@Bean public jwtutil getUtil() {return new jwtutil();}
-	
+	public RestTemplate restTemplate() {
+		return new RestTemplate();
+	}
+
+	@Bean
+	public jwtToken getToken() {
+		return new jwtToken();
+	}
+
+	@Bean
+	public User getUser() {
+		return new User();
+	}
+
+	@Bean
+	public jwtutil getUtil() {
+		return new jwtutil();
+	}
+
 	@Bean
 	public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurer() {

@@ -15,6 +15,7 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+import com.chatgpt.model.User;
 import com.chatgpt.service.UserService;
 
 
@@ -29,6 +30,9 @@ public class JwtFilter extends OncePerRequestFilter {
     private UserService service;
     @Autowired
     private jwtToken jwt;
+    
+    @Autowired
+    private User user;
 
 
     @Override
@@ -43,6 +47,7 @@ public class JwtFilter extends OncePerRequestFilter {
             token = authorizationHeader.substring(7);
             jwt.setToken(token);
             userName = jwtUtil.extractUsername(token);
+            user.setUsername(userName);
         }
 
         if (userName != null && SecurityContextHolder.getContext().getAuthentication() == null) {
