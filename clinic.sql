@@ -9,6 +9,13 @@ CLINIC_NAME VARCHAR(25),
 primary key(ID)
 );
 
+create table DOCTOR(
+ID INT,
+DOCTOR_NAME VARCHAR(25),
+SPECIALITY VARCHAR(25),
+primary key(ID)
+);
+
 CREATE TABLE SCHEDULE(
     ID INT,
     CLINIC_ID INT,
@@ -17,13 +24,6 @@ CREATE TABLE SCHEDULE(
     FOREIGN KEY(Doctor_ID) REFERENCES DOCTOR(ID),
     FOREIGN KEY(CLINIC_ID) REFERENCES CLINIC(ID),
     PRIMARY KEY (ID)
-);
-
-create table DOCTOR(
-ID INT,
-DOCTOR_NAME VARCHAR(25),
-SPECIALITY VARCHAR(25),
-primary key(ID)
 );
 
 create table USERS(
@@ -46,11 +46,11 @@ primary key(ID)
 );
 
 insert into CLINIC values
-(1,'CLINIC1',400),
-(2,'CLINIC2',500),
-(3,'CLINIC3',600),
-(4,'CLINIC4',500),
-(5,'CLINIC5',400);
+(1,'CLINIC1'),
+(2,'CLINIC2'),
+(3,'CLINIC3'),
+(4,'CLINIC4'),
+(5,'CLINIC5');
 
 insert into DOCTOR values
 (1,'DR1','PED'),
@@ -58,5 +58,18 @@ insert into DOCTOR values
 (3,'DR3','PHYSIO'),
 (4,'DR4','GENERAL'),
 (5,'DR5','ORTHO');
+
+insert into SCHEDULE values
+(1,1,1,2000),
+(2,1,2,3000),
+(3,1,3,1000),
+(4,2,4,4000),
+(5,2,2,3000),
+(6,3,3,4000),
+(7,4,1,2000),
+(8,4,2,3000),
+(9,5,1,2000),
+(10,5,5,3000),
+(11,5,3,4000);
 
 

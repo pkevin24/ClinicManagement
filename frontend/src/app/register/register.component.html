@@ -27,7 +27,8 @@
               class="form-control form-control-lg"
               placeholder="Enter your full name"
               #name="ngModel"
-              [(ngModel)]="signupModel.name"
+              [(ngModel)]="sign.name"
+              name="name"
               required
             />
           </div>
@@ -40,7 +41,8 @@
               class="form-control form-control-lg"
               placeholder="Enter a valid email address"
               #name="ngModel"
-              [(ngModel)]="signupModel.username"
+              [(ngModel)]="sign.username"
+              name="username"
               required
             />
           </div>
@@ -53,7 +55,8 @@
               class="form-control form-control-lg"
               placeholder="Enter password"
               #name="ngModel"
-              [(ngModel)]="signupModel.password"
+              [(ngModel)]="sign.password"
+              name="password"
               required
             />
           </div>

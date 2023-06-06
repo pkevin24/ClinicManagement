@@ -3,6 +3,7 @@ package com.chatgpt.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,8 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.chatgpt.model.LoginReply;
 import com.chatgpt.model.User;
 import com.chatgpt.service.ClinicService;
+import com.google.gson.Gson;
 
 @RestController
+//@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin("*")
 public class ClinicController {
 	
 	@Autowired
@@ -37,17 +41,21 @@ public class ClinicController {
 //	}
 	
 	@PostMapping("/gettoken/register")
-	public ResponseEntity<String> register(@RequestBody User user)
+	public String register(@RequestBody User user)
 	{
 		String res=serv.register(user);
+		ResponseEntity<String> reply=null;
 		switch(res)
 		{
 		case "User created successfully":
-			return new ResponseEntity<String>(res, HttpStatus.OK);
+			reply=new ResponseEntity<String>(res, HttpStatus.OK);
+			break;
 		case "Username already exists":
-			return new ResponseEntity<String>(res,HttpStatus.BAD_REQUEST);
+			reply= new ResponseEntity<String>(res,HttpStatus.BAD_REQUEST);
+			break;
 		default:
-			return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
+			reply= new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
+		return new Gson().toJson(reply);
 	}
 }

@@ -11,6 +11,7 @@ export class SignupService {
   uri = 'http://localhost:8080/gettoken/register';
 
   signup(data: any): Observable<any> {
+    console.log(data);
     return this.http.post<any>(this.uri, data);
   }
 }

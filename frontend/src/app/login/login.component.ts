@@ -37,19 +37,19 @@ export class LoginComponent implements OnInit {
         JSON.stringify(res);
 
         // console.log(res);
-        this.jwttoken = res.jwtToken;
+        this.jwttoken = res.jwt;
 
-        console.log(res.jwttoken);
+        console.log(res.jwt);
 
-        localStorage.setItem('userid', res.user.id);
+        localStorage.setItem('userid', res.jwt);
 
         this.submitted = true;
 
         setCookie(
           'jwtToken',
-          JSON.stringify(res.jwttoken).substring(
+          JSON.stringify(res.jwt).substring(
             1,
-            JSON.stringify(res.jwttoken).length - 1
+            JSON.stringify(res.jwt).length - 1
           )
         );
         window.alert('login success !!!');

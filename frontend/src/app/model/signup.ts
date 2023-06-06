@@ -1,7 +1,11 @@
 export class Signup {
-  constructor(
-    public name: string,
-    public username: string,
-    public password: string
-  ) {}
+  name: string;
+  username: string;
+  password: string;
+  constructor()
+  {
+    this.name= "";
+    this.username= "";
+    this.password= "";
+  }
 }

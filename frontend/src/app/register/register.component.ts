@@ -17,20 +17,19 @@ export class RegisterComponent implements OnInit {
     password: '',
   };
 
+  public sign=new Signup;
+
   constructor(private signupService: SignupService) {}
 
   ngOnInit(): void {}
 
   signup(userForm: any) {
-    this.signupService.signup(userForm.value).subscribe((res) => {
-      console.log(res.user);
-
-      if (res.user == null) {
-        throwError('User Already Exist!');
-      }
-      localStorage.setItem('user', JSON.stringify(res.user));
-      window.alert('User registered !!!');
-      window.location.replace('/login');
+    console.log(userForm.value);
+    this.signupService.signup(this.sign).subscribe((res) => {
+      console.log(res);
+      window.alert(res.body);
+      if(res!= "Username already exists")
+        window.location.replace('/login');
     });
   }
 }
