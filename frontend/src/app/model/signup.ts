@@ -1,7 +1,7 @@
 export class Signup {
   constructor(
-    public fname: string,
-    public email: string,
+    public name: string,
+    public username: string,
     public password: string
   ) {}
 }

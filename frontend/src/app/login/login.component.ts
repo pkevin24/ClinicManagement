@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   errMsg = '';
 
   loginModel: Login = {
-    email: '',
+    username: '',
     password: '',
   };
 
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
 
   login(userForm: any) {
     const data = {
-      email: this.loginModel.email,
+      username: this.loginModel.username,
       password: this.loginModel.password,
     };
 

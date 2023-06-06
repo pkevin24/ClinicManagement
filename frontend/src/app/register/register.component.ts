@@ -12,8 +12,8 @@ export class RegisterComponent implements OnInit {
   submitted = false;
 
   signupModel: Signup = {
-    fname: '',
-    email: '',
+    name: '',
+    username: '',
     password: '',
   };
 

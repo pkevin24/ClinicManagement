@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class SignupService {
   constructor(private http: HttpClient) {}
 
-  uri = '';
+  uri = 'http://localhost:8080/gettoken/register';
 
   signup(data: any): Observable<any> {
     return this.http.post<any>(this.uri, data);
