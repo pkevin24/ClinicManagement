@@ -44,5 +44,12 @@ class ClinicManagementApplicationTests {
 		assertNotNull(serv.getHomePageData());
 		assertThatNoException().isThrownBy(()->serv.getHomePageData());
 	}
+	
+	@Test
+	public void noException()
+	{
+		assertThatNoException().isThrownBy(()->serv.getAuthenticated(null, null));
+		assertThatNoException().isThrownBy(()->serv.register(null));
+	}
 
 }
