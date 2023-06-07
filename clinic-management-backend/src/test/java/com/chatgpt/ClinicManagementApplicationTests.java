@@ -1,9 +1,11 @@
 package com.chatgpt;
 
+import static org.assertj.core.api.Assertions.assertThatNoException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
+import org.assertj.core.api.ThrowableAssert.ThrowingCallable;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -40,6 +42,7 @@ class ClinicManagementApplicationTests {
 	public void testHomePageData()
 	{
 		assertNotNull(serv.getHomePageData());
+		assertThatNoException().isThrownBy(()->serv.getHomePageData());
 	}
 
 }
